@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibraDars</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="l18.png">
+</head>
+<body>
+    
+    <header class="whole">
+        <div class="logo-container">
+            <img src="l18.png" class="i1" alt="LibraDars Logo">
+        </div>
+        <nav class="text">
+            <a href="lib.html" class="active">Home</a>
+            <a href="books.html">Books</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="#" onclick="openMyBooks()" class="mb">My Books</a>
+            
+            <button onclick="toggleTheme()" class="theme-btn" style="background:none; border:none; cursor:pointer; font-size:18px; color:inherit; margin-left: 10px;" title="Toggle Dark/Light Mode">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+
+            <span id="authButtons">
+                <button class="b1" onclick="opensign()">Signup</button>
+                <button class="b2" onclick="openLogin()">Login</button>
+            </span>
+        </nav>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Step Into A World Of Infinite Stories</h1>
+            <p class="hero-subtitle">Find your favorite books, manage your personal collection, and start reading today from anywhere.</p>
+            <div class="hero-buttons">
+                <button class="b3" onclick="window.location.href='books.html'">Browse Collection</button>
+                <button class="btn-secondary" onclick="opensign()">Join Now</button>
+            </div>
+        </div>
+    </main>
+
+    <section class="stats-container">
+        <div class="stat-box">
+            <h3>10,000+</h3>
+            <p>Digital Books</p>
+        </div>
+        <div class="stat-box">
+            <h3>5,000+</h3>
+            <p>Active Readers</p>
+        </div>
+        <div class="stat-box">
+            <h3>50+</h3>
+            <p>Genres Available</p>
+        </div>
+    </section>
+
+    <section class="how-it-works-section">
+        <h2 class="section-title">Start Your Reading Journey In 3 Steps</h2>
+        <p class="section-subtitle">It's quick, easy, and completely digital</p>
+        
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <i class="fa-solid fa-user-plus step-icon"></i>
+                <h3>Create Account</h3>
+                <p>Sign up in seconds to unlock your free personal digital dashboard.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <i class="fa-solid fa-magnifying-glass step-icon"></i>
+                <h3>Discover Books</h3>
+                <p>Browse through our vast collection of genres and find your next favorite read.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <i class="fa-solid fa-book-reader step-icon"></i>
+                <h3>Save & Read</h3>
+                <p>Add books to your "My Books" section and start reading instantly from any device.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <h2 class="section-title">What Our Readers Say</h2>
+        <p class="section-subtitle">Join thousands of happy book lovers worldwide</p>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="user-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="user-review">"LibraDars completely changed how I read. Managing my digital collection in 'My Books' is super easy, and I can read seamlessly on my phone!"</p>
+                <h4 class="user-name">- Pandian M</h4>
+            </div>
+            <div class="testimonial-card">
+                <div class="user-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="user-review">"The interface is so clean and beautiful. I love the collection of self-development books here. Highly recommended for daily readers!"</p>
+                <h4 class="user-name">- Priyadharshini P</h4>
+            </div>
+            <div class="testimonial-card">
+                <div class="user-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="user-review">"No heavy downloads, no complex settings. Just log in, click browse, and boom—you are inside a world of stories. Absolutely brilliant website!"</p>
+                <h4 class="user-name">- Chitra Devi P</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="features-content">
+            <h2 class="section-title">Why Read With LibraDars?</h2>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                <div class="feature-text">
+                    <h4>Instant Access</h4>
+                    <p>Read directly on your mobile, tablet, or PC without any heavy downloads.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-bookmark"></i></div>
+                <div class="feature-text">
+                    <h4>Personal Dashboard</h4>
+                    <p>Save your favorite books in "My Books" and resume reading exactly where you left off.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h3>LibraDars</h3>
+        <p>Explore, Discover and Read Books Anytime, Anywhere.</p>
+        <div class="footer-links">
+            <a href="lib.html">Home</a>
+            <a href="books.html">Books</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <p class="copyright">© 2026 LibraDars. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Login / Signup Popup Modal with type="button" Fixed -->
+    <div id="loginPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close" onclick="closeLogin()">&times;</span>  
+            
+            <div id="signupBox">
+                <h2>Create Account</h2>
+                <p class="popup-sub">Join LibraDars with a simple username to save your books</p>    
+                <div class="input-group">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" id="signupUsername" name="random_signup_user" placeholder="Enter username" autocomplete="off">
+                </div>            
+                <div class="input-group password-box">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" id="signuppassword" name="random_signup_pwd" placeholder="Password" autocomplete="new-password">
+                    <i class="fa-solid fa-eye toggle-eye" id="eye" onclick="togglePassword('signuppassword', 'eye')"></i>
+                </div>            
+                <button type="button" class="auth-btn" onclick="signupUser()">Sign Up</button>
+                <p class="switch-auth">Already have an account? <a href="#" onclick="openLogin()">Login</a></p>
+            </div>
+
+            <div id="loginBox" style="display:none;">
+                <h2>Welcome Back</h2>
+                <p class="popup-sub">Login with your username to access your library</p>            
+                <div class="input-group">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" id="loginUsername" name="random_login_user" placeholder="Enter username" autocomplete="off">
+                </div>            
+                <div class="input-group password-box">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" id="loginPassword" name="random_login_pwd" placeholder="Password" autocomplete="new-password">
+                    <i class="fa-solid fa-eye toggle-eye" id="loginEye" onclick="togglePassword('loginPassword', 'loginEye')"></i>
+                </div>            
+                <button type="button" class="auth-btn" onclick="loginUser()">Login</button>
+                <p class="switch-auth">New to LibraDars? <a href="#" onclick="opensign()">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

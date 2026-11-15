@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibraDars - About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="icon" type="image/png" href="l18.png">
+</head>
+<body>
+    
+    <!-- Professional Header Navigation -->
+    <header class="whole">
+        <div class="logo-container">
+            <img src="l18.png" class="i1" alt="LibraDars Logo">
+        </div>
+        <nav class="text">
+            <a href="index.html">Home</a>
+            <a href="books.html">Books</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="#" onclick="openMyBooks()" class="mb">My Books</a>
+            <span id="authButtons">
+                <button class="b1" onclick="opensign()">Signup</button>
+                <button class="b2" onclick="openLogin()">Login</button>
+            </span>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" style="margin-top: 120px; text-align: center; color: white; padding: 40px 20px;">
+        <h2>About Us</h2>
+        <p style="max-width: 800px; margin: 20px auto; font-family: 'Poppins', sans-serif; line-height: 1.6;">
+            Welcome to LibraDars. LibraDars is a modern Library Management System designed to help users discover, borrow, and manage books efficiently. 
+            Our mission is to provide easy access to knowledge and create a seamless reading experience for students and book lovers.
+        </p>
+    </section>
+    
+    <div class="mission" style="text-align: center; color: white; padding: 20px;">
+        <h2>Our Mission</h2>
+        <p style="max-width: 800px; margin: 10px auto; font-family: 'Poppins', sans-serif; line-height: 1.6;">
+            Our goal is to make reading simple, accessible, and enjoyable for everyone.
+            LibraDars connects readers with thousands of books and provides a modern digital library experience.
+        </p>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="about-stats" style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 40px 20px;">
+        <div class="stat-card">
+            <i class="fa-solid fa-book"></i>
+            <h3>1000+</h3>
+            <p>Books</p>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-users"></i>
+            <h3>500+</h3>
+            <p>Readers</p>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-globe"></i>
+            <h3>24/7</h3>
+            <p>Access</p>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-star"></i>
+            <h3>4.9</h3>
+            <p>Rating</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3>LibraDars</h3>
+        <p>Explore, Discover and Read Books Anytime, Anywhere.</p>
+        <p class="copyright">© 2026 LibraDars. All Rights Reserved.</p>
+    </footer>
+
+    <!-- LOGIN / SIGNUP POPUP MODAL -->
+    <div id="loginPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            
+            <!-- Signup Box -->
+            <div id="signupBox">
+                <h2>Create Account</h2>
+                <p class="popup-sub">Join LibraDars to start saving your books</p>
+                <div class="input-group">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" id="signupUsername" placeholder="Username">
+                </div>
+                <div class="input-group password-box">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" id="signuppassword" placeholder="Password">
+                    <i class="fa-solid fa-eye toggle-eye" id="eye" onclick="togglePassword('signuppassword', 'eye')" style="cursor: pointer;"></i>
+                </div>
+                <button class="auth-btn" onclick="signupUser()">Sign Up</button>
+                <p class="switch-auth">Already have an account? <a href="#" onclick="openLogin()">Login</a></p>
+            </div>
+
+            <!-- Login Box -->
+            <div id="loginBox" style="display:none;">
+                <h2>Welcome Back</h2>
+                <p class="popup-sub">Login to access your saved books</p>
+                <div class="input-group">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" id="loginUsername" placeholder="Username">
+                </div>
+                <div class="input-group password-box">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" id="loginPassword" placeholder="Password">
+                    <i class="fa-solid fa-eye toggle-eye" id="loginEye" onclick="togglePassword('loginPassword', 'loginEye')" style="cursor: pointer;"></i>
+                </div>
+                <button class="auth-btn" onclick="loginUser()">Login</button>
+                <p class="switch-auth">New to LibraDars? <a href="#" onclick="opensign()">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connected with main1.js to make Navbar & Auth work seamlessly -->
+    <script src="main2.js"></script>
+</body>
+</html>

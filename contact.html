@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - LibraDars</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="icon" type="image/png" href="l18.png">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .contact-container {
+            max-width: 900px;
+            margin: 140px auto 50px auto;
+            padding: 20px;
+        }
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .contact-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: rgb(173, 125, 251);
+            margin-bottom: 10px;
+        }
+        .contact-header p {
+            color: #a4b0be;
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            border: 1px solid rgba(173, 125, 251, 0.3);
+        }
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            color: #f1f2f6;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #a4b0be;
+        }
+        .info-item i {
+            font-size: 20px;
+            color: rgb(173, 125, 251);
+            margin-right: 15px;
+            width: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #dcdde1;
+        }
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #2f3640;
+            border: 1px solid rgba(173, 125, 251, 0.4);
+            border-radius: 6px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgb(173, 125, 251);
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: rgb(173, 125, 251);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #c39eff;
+        }
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="whole" style="background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);">
+        <div class="logo-container">
+            <img src="l18.png" class="i1" alt="Logo" style="width: 70px; height: 70px;">
+        </div>
+        <nav class="text">
+            <a href="index.html">Home</a>
+            <a href="books.html">Books</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="#" onclick="openMyBooks()" class="mb">My Books</a>
+            <span id="authButtons">
+                <button class="b1" onclick="opensign()">Signup</button>
+                <button class="b2" onclick="openLogin()">Login</button>
+            </span>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <div class="contact-header">
+            <h2>Get in Touch</h2>
+            <p>Have questions about a book or library membership? Send us a message!</p>
+        </div>
+
+        <div class="contact-wrapper">
+            <!-- Contact Information Side -->
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p style="color: #a4b0be; margin-bottom: 30px;">Reach out to us through any of these platforms or drop a message via the form.</p>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>LibraDars Library, College Campus, Main Block</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 98765 43210</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>support@libradars.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+                </div>
+            </div>
+
+            <!-- Contact Form Side -->
+            <form action="#" method="POST" onsubmit="handleContact(event)">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" required placeholder="Type your message here..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- LOGIN / SIGNUP POPUP MODAL -->
+    <div id="loginPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            
+            <!-- Signup Box -->
+            <div id="signupBox">
+                <h2>Create Account</h2>
+                <p class="popup-sub">Join LibraDars to start saving your books</p>
+                <div class="input-group">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" id="signupUsername" placeholder="Username">
+                </div>
+                <div class="input-group password-box">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" id="signuppassword" placeholder="Password">
+                    <i class="fa-solid fa-eye toggle-eye" id="eye" style="cursor: pointer;"></i>
+                </div>
+                <button class="auth-btn" onclick="signupUser()">Sign Up</button>
+            </div>
+
+            <!-- Login Box -->
+            <div id="loginBox" style="display:none;">
+                <h2>Welcome Back</h2>
+                <p class="popup-sub">Login to access your saved books</p>
+                <div class="input-group">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" id="loginUsername" placeholder="Username">
+                </div>
+                <div class="input-group password-box">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" id="loginPassword" placeholder="Password">
+                    <i class="fa-solid fa-eye toggle-eye" id="loginEye" style="cursor: pointer;"></i>
+                </div>
+                <button class="auth-btn" onclick="loginUser()">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main1.js"></script>
+    <script>
+        function handleContact(event) {
+            event.preventDefault();
+            alert("Thank you! Your message has been sent successfully. 🥳");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>

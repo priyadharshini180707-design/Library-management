@@ -1,0 +1,599 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("bg18.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* HEADER / NAVBAR */
+.whole {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding: 10px 30px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.i1 {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* NAV LINKS & BUTTONS CONTAINER */
+.text {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Screen chinnaathaanaalum keezha irangamal adjust aagum */
+}
+
+.text a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.text a:hover, .text a.active {
+    background-color: rgb(173, 125, 251);
+    border-color: rgb(173, 125, 251);
+    color: black;
+    font-weight: 500;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    padding: 5px;
+}
+
+/* SIGNUP & LOGIN BUTTONS ALIGNMENT */
+#authButtons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.b1, .b2 {
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+/* Signup button (Neenga ketta mathiri athuvum oru look-oda varum) */
+.b1 {
+    background-color: transparent;
+    border: 1px solid rgb(173, 125, 251);
+    color: white;
+}
+
+.b1:hover {
+    background-color: rgb(173, 125, 251);
+    color: black;
+}
+
+/* Login button */
+.b2 {
+    background-color: rgb(173, 125, 251);
+    border: 1px solid rgb(173, 125, 251);
+    color: black;
+}
+
+.b2:hover {
+    background-color: transparent;
+    color: white;
+}
+/* HERO SECTION */
+.hero-section {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    max-width: 1000px;
+    margin: 130px auto 40px auto;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 45px;
+    font-family: 'Playfair Display', serif;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.b3, .btn-secondary {
+    border-radius: 12px;
+    width: 160px;
+    height: 45px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.b3 {
+    background-color: rgb(173, 125, 251);
+    border: 2px solid rgb(173, 125, 251);
+    color: black;
+}
+
+.b3:hover {
+    background-color: transparent;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid rgb(173, 125, 251);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: rgb(173, 125, 251);
+    color: black;
+}
+
+/* STATS DESIGN */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px 20px;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.stat-box h3 {
+    font-size: 32px;
+    color: rgb(173, 125, 251);
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+}
+
+.stat-box p {
+    color: white;
+    font-size: 15px;
+    margin: 5px 0 0 0;
+}
+
+/* HOW IT WORKS & TESTIMONIALS SECTIONS */
+.how-it-works-section, .testimonials-section {
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 35px;
+}
+
+.steps-grid, .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.step-card {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    position: relative;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    border-color: rgb(173, 125, 251);
+}
+
+.step-number {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(173, 125, 251, 0.4);
+}
+
+.step-icon {
+    font-size: 28px;
+    color: rgb(173, 125, 251);
+    margin-bottom: 15px;
+}
+
+.step-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.step-card p {
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* TESTIMONIAL CARDS */
+.testimonial-card {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: left;
+    border-left: 4px solid rgb(173, 125, 251);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-stars {
+    color: #f39c12;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.user-review {
+    font-style: italic;
+    color: white;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.user-name {
+    font-weight: 600;
+    color: rgb(173, 125, 251);
+    font-size: 13px;
+    margin: 0;
+}
+
+/* FEATURES SECTION */
+.features-section {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border-left: 4px solid rgb(173, 125, 251);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+.feature-icon i {
+    font-size: 26px;
+    color: rgb(173, 125, 251);
+}
+
+.feature-text h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: white;
+    margin: 0 0 4px 0;
+}
+
+.feature-text p {
+    color: #ccc;
+    margin: 0;
+    font-size: 13px;
+}
+
+/* POPUP MODAL */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 2000;
+}
+
+.popup-content {
+    background: rgba(20, 20, 20, 0.85);
+    padding: 30px 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 380px;
+    position: relative;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: rgb(173, 125, 251);
+}
+
+.popup-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    margin: 0 0 5px 0;
+    color: white;
+}
+
+.popup-sub {
+    font-size: 12px;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+/* Password input autofill fix */
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover, 
+.input-group input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff !important;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.6) inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.input-icon {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+/* --- Modal Input Group Alignment Fix --- */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Input Fields styling inside modal */
+.input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 45px;
+    background-color: rgb(45, 45, 45);
+    border: 1px solid gray;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Left side icons (Email & Lock) */
+.input-group .input-icon {
+    position: absolute;
+    left: 15px;
+    color: gray;
+    font-size: 16px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Right side eye icon (Password toggle) */
+.input-group .toggle-eye {
+    position: absolute;
+    right: 15px;
+    color: gray;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 2;
+    background: none;
+    border: none;
+}
+
+.auth-btn {
+    width: 100%;
+    height: 42px;
+    background: rgb(173, 125, 251);
+    color: black;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: 0.3s;
+}
+
+.auth-btn:hover {
+    background: #c39eff;
+}
+
+.switch-auth {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.switch-auth a {
+    color: rgb(173, 125, 251);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+/* FOOTER */
+.footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer h3 {
+    font-size: 22px;
+    font-family: 'Playfair Display', serif;
+    color: rgb(173, 125, 251);
+    margin-bottom: 6px;
+}
+
+.footer p {
+    color: #aaa;
+    font-size: 12px;
+    margin: 4px 0;
+}
+
+.footer-links {
+    margin: 15px 0;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: rgb(173, 125, 251);
+}
+
+.social-icons {
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 16px;
+    margin: 0 8px;
+}
+
+.social-icons a:hover {
+    color: rgb(173, 125, 251);
+}
+
+.copyright {
+    font-size: 11px;
+    color: #888;
+}
+
+/* DARK MODE SUPPORT */
+body.dark-mode {
+    background-color: #121212 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .whole {
+    background-color: #181818 !important;
+}
+
+body.dark-mode .stat-box, 
+body.dark-mode .step-card, 
+body.dark-mode .testimonial-card,
+body.dark-mode .feature-item {
+    background-color: #1a1a1a !important;
+    border-color: #333 !important;
+}

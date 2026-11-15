@@ -1,0 +1,378 @@
+/* Base Styles & Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url('bg18.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #333;
+}
+
+/* Navbar Section - Pure Transparent & No Blur */
+.whole {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    gap: 10px;
+    box-sizing: border-box;
+    padding: 15px 5%;
+    background: transparent;
+}
+
+/* Logo Styling */
+.i1 {
+    height: 75px !important;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Navigation Links Container */
+.text {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: transparent;
+}
+
+.text a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95rem;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: color 0.3s;
+}
+
+.text a:hover, .text a.active {
+    color: #f39c12;
+    background: transparent;
+}
+
+/* Action Buttons (Signup / Login) */
+.b1, .b2 {
+    padding: 8px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    border: none;
+}
+
+.b1 {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.b2 {
+    background-color: #f39c12;
+    color: white;
+}
+
+/* Categories Section */
+.categories {
+    padding: 50px 50px 20px 50px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Book Categories Heading - Light Black Background Effect */
+.categories h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #fff; 
+    background-color: rgba(0, 0, 0, 0.45); 
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.search-box button {
+    padding: 0 20px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.category-card {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    cursor: pointer;
+    font-weight: 500;
+    transition: transform 0.2s, background-color 0.2s;
+    border: 1px solid #e0e0e0;
+}
+
+.category-card:hover {
+    background-color: #f39c12;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Featured / Books Grid Section */
+.featured {
+    padding: 20px 50px 60px 50px;
+    text-align: center;
+}
+
+/* All Books Collection Heading - Light Black Background Effect */
+.featured h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #fff; 
+    background-color: rgba(0, 0, 0, 0.45); 
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Card-oda size-ah limit panrom */
+    gap: 20px;
+    padding: 20px;
+}
+
+.book-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.book-top h1 {
+    font-size: 0.8rem;
+    color: #777;
+    font-weight: 400;
+}
+
+.heart-icon {
+    color: #ccc;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.heart-icon:hover {
+    color: #e74c3c;
+}
+
+.book-card img {
+    width: 100%;
+    height: 220px;          /* Height-ah correct-ah fix panrom */
+    object-fit: contain;     /* Image stretch aagatha padhi full-ah kaattum */
+    background-color: #f9f9f9; /* Image-ku pinnadi background color */
+    padding: 10px;
+}
+
+.book-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+/* Read Now Link Button Style Fix */
+.book-card .auth-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.book-card .auth-btn:hover {
+    background-color: #f39c12;
+}
+
+/* Footer */
+.footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.footer h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* Modal Popup Styles */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.popup-content h2 {
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.popup-sub {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.toggle-eye {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}
+
+.popup-content .auth-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.switch-auth {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.85rem;
+}
+
+.switch-auth a {
+    color: #f39c12;
+    text-decoration: none;
+    font-weight: 500;
+}

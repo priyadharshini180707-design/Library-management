@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibraDars - My Saved Books</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style5.css">
+    <link rel="icon" type="image/png" href="l18.png">
+</head>
+<body style="background-color: #f9f6f0; margin: 0; font-family: 'Poppins', sans-serif;">
+
+    <!-- ================= HEADER ================= -->
+    <header class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+        <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+            <img src="l18.png" alt="LibraDars Logo" style="width: 40px; height: 40px;" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2232/2232688.png'">
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin: 0; color: #2c3e50;">LibraDars</h1>
+        </div>
+        <nav class="nav" style="display: flex; align-items: center; gap: 20px;">
+            <a href="index.html" style="text-decoration: none; color: #333; font-weight: 500;"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="books.html" style="text-decoration: none; color: #333; font-weight: 500;"><i class="fa-solid fa-layer-group"></i> Categories</a>
+            <button class="logout-btn" onclick="logoutUser()" style="background: #a93226; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: 500;">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+        </nav>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero" style="text-align: center; padding: 40px 20px; background: #fff5ee; border-bottom: 1px solid #eadbc8; margin-bottom: 30px;">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #2c3e50; margin-bottom: 10px;">My Saved Books Collection 📚</h2>
+        <p style="color: #666; font-size: 1rem; margin-bottom: 15px;">Access your favorite online books and reading materials instantly in one place.</p>
+        <div class="welcome" id="welcomeUser" style="font-weight: 600; color: #8e44ad; font-size: 1.1rem;">Welcome 👋</div>
+    </section>
+
+    <!-- ================= DASHBOARD ================= -->
+    <main class="dashboard" style="max-width: 1200px; margin: 0 auto; padding: 0 20px 50px 20px;">
+
+        <!-- STATISTICS -->
+        <div class="stats" style="display: flex; justify-content: center; margin-bottom: 40px;">
+            <div class="stat-card" style="background: white; padding: 20px 40px; border-radius: 10px; display: flex; align-items: center; gap: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2dacd;">
+                <div class="stat-icon" style="font-size: 2rem; color: #d35400;"><i class="fa-solid fa-bookmark"></i></div>
+                <div>
+                    <h3 id="savedCount" style="margin: 0; font-size: 1.8rem; color: #2c3e50;">0</h3>
+                    <p style="margin: 0; color: #777; font-size: 0.9rem;">Total Saved Books</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SAVED BOOKS SECTION ================= -->
+        <section class="section">
+            <div class="section-title" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; margin: 0;"><i class="fa-solid fa-book-bookmark"></i> My Reading Library</h2>
+                <div class="search-box" style="display: flex; align-items: center; background: white; border: 1px solid #ccc; border-radius: 6px; overflow: hidden; padding: 5px 10px; width: 300px;">
+                    <input type="text" id="searchInput" placeholder="Search saved books..." onkeyup="searchSavedBooks()" style="border: none; outline: none; width: 100%; font-size: 0.9rem; background: transparent;">
+                    <button style="border: none; background: transparent; cursor: pointer; color: #666;"><i class="fa-solid fa-search"></i></button>
+                </div>
+            </div>
+
+            <!-- Dynamically populated via JavaScript -->
+            <div class="book-grid" id="savedBooksGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px;">
+                <!-- Loaded dynamically -->
+            </div>
+
+            <div class="empty" id="emptySearch" style="display: none; text-align: center; padding: 40px; color: #777;">
+                <i class="fa-solid fa-book-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                <p>No books found matching your search.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>© 2026 LibraDars Library Management System</p>
+        <p>Discover • Save • Read Online 📚</p>
+    </footer>
+
+    <!-- Toast Notification Popup -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Script Logic -->
+    <script>
+        window.onload = function() {
+            // Check for user or set default user automatically to prevent login alert loop
+            let currentUser = localStorage.getItem('libraUser') || localStorage.getItem('loggedInUser') || localStorage.getItem('username');
+
+            if (!currentUser) {
+                currentUser = "Priyadharshini P";
+                localStorage.setItem('libraUser', currentUser);
+                localStorage.setItem('isLoggedIn', 'true');
+            }
+
+            const welcomeUser = document.getElementById('welcomeUser');
+            if (welcomeUser) {
+                welcomeUser.innerText = `Welcome 👋, ${currentUser}`;
+            }
+
+            loadSavedBooks(currentUser);
+        };
+
+        function loadSavedBooks(username) {
+            let favKey = 'mySavedBooks_' + username;
+            let favorites = JSON.parse(localStorage.getItem(favKey)) || [];
+
+            const grid = document.getElementById('savedBooksGrid');
+            document.getElementById('savedCount').innerText = favorites.length;
+            grid.innerHTML = '';
+
+            if (favorites.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #777; background: white; border-radius: 10px; border: 1px dashed #ccc;">
+                        <i class="fa-solid fa-book-open" style="font-size: 3rem; margin-bottom: 15px; color: #8e44ad;"></i>
+                        <p style="font-size: 1.1rem; margin-bottom: 15px; color: #2c3e50;">No books saved in your collection yet.</p>
+                        <a href="books.html" style="display: inline-block; padding: 10px 20px; background: #8e44ad; color: #fff; border-radius: 5px; text-decoration: none; font-weight: 500;">Explore Categories & Books</a>
+                    </div>
+                `;
+                return;
+            }
+
+            favorites.forEach((book, index) => {
+                grid.innerHTML += `
+                    <div class="book-card" data-title="${book.title.toLowerCase()}" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; display: flex; flex-direction: column;">
+                        <div class="book-image" style="height: 200px; background: #f4f0ea; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                            <img src="${book.image}" alt="${book.title}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80'">
+                        </div>
+                        <div class="book-info" style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between;">
+                            <div>
+                                <h3 style="margin: 0 0 5px 0; font-size: 1.1rem; color: #2c3e50; font-family: 'Playfair Display', serif;">${book.title}</h3>
+                                <p class="author" style="color: #666; font-size: 0.85rem; margin: 0 0 15px 0;">${book.author || 'Online Author'}</p>
+                            </div>
+
+                            <div style="display: flex; gap: 10px;">
+                                <a href="read.html?file=${book.pdfUrl}&title=${encodeURIComponent(book.title)}" style="flex: 1; text-align: center; background-color: #27ae60; text-decoration: none; padding: 8px; border-radius: 6px; color: white; font-size: 0.9rem; font-weight: 500;">
+                                    <i class="fa-solid fa-book-open-reader"></i> Read
+                                </a>
+                                <button style="background-color: #c0392b; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer;" onclick="removeBook('${book.title}', '${username}')">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function searchSavedBooks() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('#savedBooksGrid .book-card');
+            let emptyMsg = document.getElementById('emptySearch');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                let title = card.getAttribute('data-title');
+                if (title && title.includes(input)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0 && cards.length > 0) {
+                emptyMsg.style.display = 'block';
+            } else {
+                emptyMsg.style.display = 'none';
+            }
+        }
+
+        function removeBook(title, username) {
+            let favKey = 'mySavedBooks_' + username;
+            let favorites = JSON.parse(localStorage.getItem(favKey)) || [];
+
+            favorites = favorites.filter(book => book.title !== title);
+            localStorage.setItem(favKey, JSON.stringify(favorites));
+
+            loadSavedBooks(username);
+            showToast(`"${title}" removed from your collection.`);
+        }
+
+        function logoutUser() {
+            localStorage.removeItem('libraUser');
+            localStorage.removeItem('loggedInUser');
+            localStorage.removeItem('libraPass');
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'index.html';
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            if (toast) {
+                toast.innerText = message;
+                toast.className = "toast show";
+                setTimeout(() => {
+                    toast.className = toast.className.replace("show", "");
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>

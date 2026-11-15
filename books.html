@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibraDars - Books Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="icon" type="image/png" href="l18.png">
+</head>
+<body>
+    
+    <!-- Professional Header Navigation -->
+    <header class="whole">
+        <div class="logo-container">
+            <img src="l18.png" class="i1" alt="LibraDars Logo">
+        </div>
+        <nav class="text">
+            <a href="index.html">Home</a>
+            <a href="books.html" class="active">Books</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="#" onclick="openMyBooks()" class="mb">My Books</a>
+            <span id="authButtons">
+                <button class="b1" onclick="opensign()">Signup</button>
+                <button class="b2" onclick="openLogin()">Login</button>
+            </span>
+        </nav>
+    </header>
+
+    <!-- Categories & Search Section -->
+    <section class="categories" id="categories">
+        <h2>Book Categories</h2>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search your favorite books..." onkeyup="searchBook()">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="category-container">
+            <div class="category-card" onclick="filterBooks('all')">📚 All Books</div>
+            <div class="category-card" onclick="filterBooks('tamil')">📘 Tamil Books</div>
+            <div class="category-card" onclick="filterBooks('fiction')">📖 Fiction</div>
+            <div class="category-card" onclick="filterBooks('technology')">💻 Technology</div>
+            <div class="category-card" onclick="filterBooks('science')">🔬 Science</div>
+            <div class="category-card" onclick="filterBooks('history')">📜 History</div>
+            <div class="category-card" onclick="filterBooks('selfdevelopment')">🧠 Self Development</div>
+            <div class="category-card" onclick="filterBooks('business')">💼 Business</div>
+            <div class="category-card" onclick="filterBooks('romance')">❤️ Romance</div>
+            <div class="category-card" onclick="filterBooks('sciencefiction')">🚀 Science Fiction</div>
+        </div>
+    </section>
+
+    <!-- Featured Books Collection -->
+    <section class="featured">
+        <h2 id="sectionTitle">All Books Collection</h2>
+        <div class="book-container" id="bookListContainer">
+            
+            <!-- ================= TAMIL BOOKS (20 Books) ================= -->
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Thirukkural" onclick="saveBook('Thirukkural','book11.jpg')" style="cursor: pointer;"></i></div><img src="book11.jpg" alt="Thirukkural"><h3>Thirukkural</h3><a href="read.html?file=books/thirukkural.pdf&title=Thirukkural" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Ponniyin Selvan" onclick="saveBook('Ponniyin Selvan','book12.jpg')" style="cursor: pointer;"></i></div><img src="book12.jpg" alt="Ponniyin Selvan"><h3>Ponniyin Selvan</h3><a href="read.html?file=books/ponniyin-selvan.pdf&title=Ponniyin%20Selvan" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Sivagamiyin Sabatham" onclick="saveBook('Sivagamiyin Sabatham','book13.jpg')" style="cursor: pointer;"></i></div><img src="book13.jpg" alt="Sivagamiyin Sabatham"><h3>Sivagamiyin Sabatham</h3><a href="read.html?file=books/sivagamiyin-sabatham.pdf&title=Sivagamiyin%20Sabatham" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Parthiban Kanavu" onclick="saveBook('Parthiban Kanavu','book14.jpg')" style="cursor: pointer;"></i></div><img src="book14.jpg" alt="Parthiban Kanavu"><h3>Parthiban Kanavu</h3><a href="read.html?file=books/parthiban-kanavu.pdf&title=Parthiban%20Kanavu" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Kural Amutham" onclick="saveBook('Kural Amutham','book15.jpg')" style="cursor: pointer;"></i></div><img src="book15.jpg" alt="Kural Amutham"><h3>Kural Amutham</h3><a href="read.html?file=books/kural-amutham.pdf&title=Kural%20Amutham" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Agal Vilakku" onclick="saveBook('Agal Vilakku','book16.jpg')" style="cursor: pointer;"></i></div><img src="book16.jpg" alt="Agal Vilakku"><h3>Agal Vilakku</h3><a href="read.html?file=books/agal-vilakku.pdf&title=Agal%20Vilakku" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Kallikattu Udaiyan" onclick="saveBook('Kallikattu Udaiyan','book17.jpg')" style="cursor: pointer;"></i></div><img src="book17.jpg" alt="Kallikattu Udaiyan"><h3>Kallikattu Udaiyan</h3><a href="read.html?file=books/kallikattu-udaiyan.pdf&title=Kallikattu%20Udaiyan" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Karuvachi Kaviyam" onclick="saveBook('Karuvachi Kaviyam','book18.jpg')" style="cursor: pointer;"></i></div><img src="book18.jpg" alt="Karuvachi Kaviyam"><h3>Karuvachi Kaviyam</h3><a href="read.html?file=books/karuvachi-kaviyam.pdf&title=Karuvachi%20Kaviyam" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Thanneer Desam" onclick="saveBook('Thanneer Desam','book19.jpg')" style="cursor: pointer;"></i></div><img src="book19.jpg" alt="Thanneer Desam"><h3>Thanneer Desam</h3><a href="read.html?file=books/thanneer-desam.pdf&title=Thanneer%20Desam" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Oru Manithanin Kathai" onclick="saveBook('Oru Manithanin Kathai','book20.jpg')" style="cursor: pointer;"></i></div><img src="book20.jpg" alt="Oru Manithanin Kathai"><h3>Oru Manithanin Kathai</h3><a href="read.html?file=books/oru-manithanin-kathai.pdf&title=Oru%20Manithanin%20Kathai" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Sila Nerangalil" onclick="saveBook('Sila Nerangalil','book21.jpg')" style="cursor: pointer;"></i></div><img src="book21.jpg" alt="Sila Nerangalil"><h3>Sila Nerangalil</h3><a href="read.html?file=books/sila-nerangalil.pdf&title=Sila%20Nerangalil" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Vellikizhamai" onclick="saveBook('Vellikizhamai','book22.jpg')" style="cursor: pointer;"></i></div><img src="book22.jpg" alt="Vellikizhamai"><h3>Vellikizhamai</h3><a href="read.html?file=books/vellikizhamai.pdf&title=Vellikizhamai" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Azhageesan" onclick="saveBook('Azhageesan','book23.jpg')" style="cursor: pointer;"></i></div><img src="book23.jpg" alt="Azhageesan"><h3>Azhageesan</h3><a href="read.html?file=books/azhageesan.pdf&title=Azhageesan" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Chithirappavai" onclick="saveBook('Chithirappavai','book24.jpg')" style="cursor: pointer;"></i></div><img src="book24.jpg" alt="Chithirappavai"><h3>Chithirappavai</h3><a href="read.html?file=books/chithirappavai.pdf&title=Chithirappavai" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Vengaiyin Mainthan" onclick="saveBook('Vengaiyin Mainthan','book25.jpg')" style="cursor: pointer;"></i></div><img src="book25.jpg" alt="Vengaiyin Mainthan"><h3>Vengaiyin Mainthan</h3><a href="read.html?file=books/vengaiyin-mainthan.pdf&title=Vengaiyin%20Mainthan" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Jnanpith Kathaigal" onclick="saveBook('Jnanpith Kathaigal','book26.jpg')" style="cursor: pointer;"></i></div><img src="book26.jpg" alt="Jnanpith Kathaigal"><h3>Jnanpith Kathaigal</h3><a href="read.html?file=books/jnanpith.pdf&title=Jnanpith%20Kathaigal" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Thiruvasagam" onclick="saveBook('Thiruvasagam','book27.jpg')" style="cursor: pointer;"></i></div><img src="book27.jpg" alt="Thiruvasagam"><h3>Thiruvasagam</h3><a href="read.html?file=books/thiruvasagam.pdf&title=Thiruvasagam" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Kambaramayanam" onclick="saveBook('Kambaramayanam','book28.jpg')" style="cursor: pointer;"></i></div><img src="book28.jpg" alt="Kambaramayanam"><h3>Kambaramayanam</h3><a href="read.html?file=books/kambaramayanam.pdf&title=Kambaramayanam" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Silappathikaram" onclick="saveBook('Silappathikaram','book29.jpg')" style="cursor: pointer;"></i></div><img src="book29.jpg" alt="Silappathikaram"><h3>Silappathikaram</h3><a href="read.html?file=books/silappathikaram.pdf&title=Silappathikaram" class="auth-btn">Read Now</a></div>
+            <div class="book-card all tamil"><div class="book-top"><h1 class="t2">Tamil Books</h1><i class="fa-solid fa-heart heart-icon" data-title="Periya Puranam" onclick="saveBook('Periya Puranam','book30.jpg')" style="cursor: pointer;"></i></div><img src="book30.jpg" alt="Periya Puranam"><h3>Periya Puranam</h3><a href="read.html?file=books/periya-puranam.pdf&title=Periya%20Puranam" class="auth-btn">Read Now</a></div>
+
+            <!-- ================= FICTION (2 Books) ================= -->
+            <div class="book-card all fiction">
+                <div class="book-top">
+                    <h1 class="t3">Fiction</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="Harry Potter" onclick="saveBook('Harry Potter','book31.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book31.jpg" alt="Harry Potter">
+                <h3>Harry Potter</h3>
+                <a href="read.html?file=books/harry-potter.pdf&title=Harry%20Potter" class="auth-btn">Read Now</a>
+            </div>
+            <div class="book-card all fiction">
+                <div class="book-top">
+                    <h1 class="t3">Fiction</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="The Alchemist" onclick="saveBook('The Alchemist','book32.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book32.jpg" alt="The Alchemist">
+                <h3>The Alchemist</h3>
+                <a href="read.html?file=books/the-alchemist.pdf&title=The%20Alchemist" class="auth-btn">Read Now</a>
+            </div>
+
+            <!-- ================= TECHNOLOGY (2 Books) ================= -->
+            <div class="book-card all technology">
+                <div class="book-top">
+                    <h1 class="t3">Technology</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="Cyber Security" onclick="saveBook('Cyber Security','book33.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book33.jpg" alt="Cyber Security">
+                <h3>Cyber Security</h3>
+                <a href="read.html?file=books/cyber-security.pdf&title=Cyber%20Security" class="auth-btn">Read Now</a>
+            </div>
+            <div class="book-card all technology">
+                <div class="book-top">
+                    <h1 class="t3">Technology</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="Python Programming" onclick="saveBook('Python Programming','book34.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book34.jpg" alt="Python Programming">
+                <h3>Python Programming</h3>
+                <a href="read.html?file=books/python-programming.pdf&title=Python%20Programming" class="auth-btn">Read Now</a>
+            </div>
+
+            <!-- ================= SCIENCE (2 Books) ================= -->
+            <div class="book-card all science">
+                <div class="book-top">
+                    <h1 class="t3">Science</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="Chemistry" onclick="saveBook('Chemistry','book35.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book35.jpg" alt="Chemistry">
+                <h3>Chemistry</h3>
+                <a href="read.html?file=books/chemistry.pdf&title=Chemistry" class="auth-btn">Read Now</a>
+            </div>
+            <div class="book-card all science">
+                <div class="book-top">
+                    <h1 class="t3">Science</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="A Brief History of Time" onclick="saveBook('A Brief History of Time','book36.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book36.jpg" alt="A Brief History of Time">
+                <h3>A Brief History of Time</h3>
+                <a href="read.html?file=books/brief-history-of-time.pdf&title=A%20Brief%20History%20of%20Time" class="auth-btn">Read Now</a>
+            </div>
+
+            <!-- ================= HISTORY (2 Books) ================= -->
+            <div class="book-card all history">
+                <div class="book-top">
+                    <h1 class="t3">History</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="History" onclick="saveBook('History','book37.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book37.jpg" alt="History">
+                <h3>History</h3>
+                <a href="read.html?file=books/history.pdf&title=History" class="auth-btn">Read Now</a>
+            </div>
+            <div class="book-card all history">
+                <div class="book-top">
+                    <h1 class="t3">History</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="Sapiens" onclick="saveBook('Sapiens','book38.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book38.jpg" alt="Sapiens">
+                <h3>Sapiens</h3>
+                <a href="read.html?file=books/sapiens.pdf&title=Sapiens" class="auth-btn">Read Now</a>
+            </div>
+
+            <!-- ================= SELF DEVELOPMENT (2 Books) ================= -->
+            <div class="book-card all selfdevelopment">
+                <div class="book-top">
+                    <h1 class="t2">Self Development</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="Atomic Habits" onclick="saveBook('Atomic Habits','book39.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book39.jpg" alt="Atomic Habits">
+                <h3>Atomic Habits</h3>
+                <a href="read.html?file=books/atomic-habits.pdf&title=Atomic%20Habits" class="auth-btn">Read Now</a>
+            </div>
+            <div class="book-card all selfdevelopment">
+                <div class="book-top">
+                    <h1 class="t2">Self Development</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="The Power of Now" onclick="saveBook('The Power of Now','book40.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book40.jpg" alt="The Power of Now">
+                <h3>The Power of Now</h3>
+                <a href="read.html?file=books/power-of-now.pdf&title=The%20Power%20of%20Now" class="auth-btn">Read Now</a>
+            </div>
+
+            <!-- ================= BUSINESS (2 Books) ================= -->
+            <div class="book-card all business">
+                <div class="book-top">
+                    <h1 class="t3">Business</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="Business" onclick="saveBook('Business','book41.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book41.jpg" alt="Business">
+                <h3>Business</h3>
+                <a href="read.html?file=books/business.pdf&title=Business" class="auth-btn">Read Now</a>
+            </div>
+            <div class="book-card all business">
+                <div class="book-top">
+                    <h1 class="t3">Business</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="Rich Dad Poor Dad" onclick="saveBook('Rich Dad Poor Dad','book42.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book42.jpg" alt="Rich Dad Poor Dad">
+                <h3>Rich Dad Poor Dad</h3>
+                <a href="read.html?file=books/rich-dad-poor-dad.pdf&title=Rich%20Dad%20Poor%20Dad" class="auth-btn">Read Now</a>
+            </div>
+
+            <!-- ================= ROMANCE (2 Books) ================= -->
+            <div class="book-card all romance">
+                <div class="book-top">
+                    <h1 class="t3">Romance</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="Romeo and Juliet" onclick="saveBook('Romeo and Juliet','book43.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book43.jpg" alt="Romeo and Juliet">
+                <h3>Romeo and Juliet</h3>
+                <a href="read.html?file=books/romeo-and-juliet.pdf&title=Romeo%20and%20Juliet" class="auth-btn">Read Now</a>
+            </div>
+            <div class="book-card all romance">
+                <div class="book-top">
+                    <h1 class="t3">Romance</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="Pride and Prejudice" onclick="saveBook('Pride and Prejudice','book44.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book44.jpg" alt="Pride and Prejudice">
+                <h3>Pride and Prejudice</h3>
+                <a href="read.html?file=books/pride-and-prejudice.pdf&title=Pride%20and%20Prejudice" class="auth-btn">Read Now</a>
+            </div>
+
+            <!-- ================= SCIENCE FICTION (2 Books) ================= -->
+            <div class="book-card all sciencefiction">
+                <div class="book-top">
+                    <h1 class="t3">Science Fiction</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="The Last Syntetic" onclick="saveBook('The Last Syntetic','book45.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book45.jpg" alt="The Last Syntetic">
+                <h3>The Last Syntetic</h3>
+                <a href="read.html?file=books/the-last-syntetic.pdf&title=The%20Last%20Syntetic" class="auth-btn">Read Now</a>
+            </div>
+            <div class="book-card all sciencefiction">
+                <div class="book-top">
+                    <h1 class="t3">Science Fiction</h1>
+                    <i class="fa-solid fa-heart heart-icon" data-title="Dune" onclick="saveBook('Dune','book46.jpg')" style="cursor: pointer;"></i>
+                </div>
+                <img src="book46.jpg" alt="Dune">
+                <h3>Dune</h3>
+                <a href="read.html?file=books/dune.pdf&title=Dune" class="auth-btn">Read Now</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <h3>LibraDars</h3>
+        <p>Explore, Discover and Read Books Anytime, Anywhere.</p>
+        <p class="copyright">© 2026 LibraDars. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Login / Signup Popup Modal -->
+    <div id="loginPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close" onclick="closeLogin()">&times;</span>  
+            
+            <!-- Signup Box -->
+            <div id="signupBox">
+                <h2>Create Account</h2>
+                <p class="popup-sub">Join LibraDars to start saving your books</p> 
+                <div class="input-group">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" id="signupUsername" placeholder="Username">
+                </div>          
+                <div class="input-group password-box">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" id="signuppassword" placeholder="Password">
+                    <i class="fa-solid fa-eye toggle-eye" id="eye" onclick="togglePassword('signuppassword', 'eye')" style="cursor: pointer;"></i>
+                </div>          
+                <button class="auth-btn" onclick="signupUser()">Sign Up</button>
+                <p class="switch-auth">Already have an account? <a href="#" onclick="openLogin()">Login</a></p>
+            </div>
+
+            <!-- Login Box -->
+            <div id="loginBox" style="display:none;">
+                <h2>Welcome Back</h2>
+                <p class="popup-sub">Login to access your personalized library</p>            
+                <div class="input-group">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" id="loginUsername" placeholder="Username">
+                </div>          
+                <div class="input-group password-box">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" id="loginPassword" placeholder="Password">
+                    <i class="fa-solid fa-eye toggle-eye" id="loginEye" onclick="togglePassword('loginPassword', 'loginEye')" style="cursor: pointer;"></i>
+                </div>          
+                <button class="auth-btn" onclick="loginUser()">Login</button>
+                <p class="switch-auth">New to LibraDars? <a href="#" onclick="opensign()">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Fix for Filtering -->
+    <script>
+        function filterBooks(category) {
+            const cards = document.querySelectorAll('.book-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+    <script src="main1.js"></script>
+</body>
+</html>
